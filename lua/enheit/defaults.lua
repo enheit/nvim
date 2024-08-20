@@ -12,7 +12,8 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.wo.number = true
 vim.wo.wrap = false
-vim.wo.signcolumn = "number"
+-- NOTE: I changed it to "yes" to prevent file content to be shifted each time new sign from gitsigns plugin is added (appears) @ Roman
+vim.wo.signcolumn = "yes" -- Previously it was "number"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
