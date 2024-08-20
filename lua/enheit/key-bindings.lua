@@ -54,3 +54,6 @@ vim.api.nvim_create_autocmd("TermEnter", {
     end, { buffer = true })
   end,
 })
+
+-- Git Blame
+vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>GitBlameToggle<cr>', { noremap = true, silent = true })

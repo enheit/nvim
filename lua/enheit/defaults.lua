@@ -2,7 +2,7 @@
 -- vim.diagnostic.config({ virtual_text = false }) --  disable virtaul text of LSP
 vim.api.nvim_set_option("clipboard", "unnamedplus")
 
-vim.g.colors_name="three3"
+vim.g.colors_name = "three3"
 vim.o.termguicolors = true
 -- vim.o.cmdheight = 1
 
@@ -23,3 +23,7 @@ vim.opt.expandtab = true
 vim.opt.laststatus = 3
 vim.bo.softtabstop = 2
 vim.opt.cursorline = true
+
+-- Set split behavior for new windows
+vim.opt.splitright = true -- Vertical splits open to the right
+vim.opt.splitbelow = true -- Horizontal splits open below
