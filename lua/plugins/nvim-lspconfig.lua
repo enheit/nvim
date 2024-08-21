@@ -17,6 +17,9 @@ return {
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', '<space>cr', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+
+        -- vim.keymap.set('n', '<space>f', "<cmd>PrettierAsync<cr>", opts)
+
         vim.keymap.set('n', '<space>f', function()
           vim.lsp.buf.format { async = true }
         end, opts)
@@ -63,6 +66,8 @@ return {
 
     -- configure TailwindCSS lsp
     lspconfig["tailwindcss"].setup({})
+
+    lspconfig["eslint"].setup({})
   end
 }
 

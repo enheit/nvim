@@ -28,3 +28,5 @@ vim.opt.cursorline = true
 -- Set split behavior for new windows
 vim.opt.splitright = true -- Vertical splits open to the right
 vim.opt.splitbelow = true -- Horizontal splits open below
+
+-- vim.wo.colorcolumn = "120" -- Add ruler
