@@ -39,6 +39,9 @@ return {
       }
     })
 
+    --configure go lsp
+    lspconfig["gopls"].setup({})
+
     local function organize_imports()
       local params = {
         command = "_typescript.organizeImports",
@@ -68,6 +71,8 @@ return {
 
     -- configure TailwindCSS lsp
     lspconfig["tailwindcss"].setup({})
+
+    lspconfig["sourcekit"].setup({})
 
     lspconfig["eslint"].setup({})
   end
