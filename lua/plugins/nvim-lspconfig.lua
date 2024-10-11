@@ -3,7 +3,9 @@ return {
   config = function()
     require("mason").setup()
 
-    require("mason-lspconfig").setup()
+    require("mason-lspconfig").setup({
+      ensure_installed = { "jsonls" }
+    })
 
     local lspconfig = require("lspconfig")
 
@@ -42,6 +44,26 @@ return {
     --configure go lsp
     lspconfig["gopls"].setup({})
 
+    --configure sqlls
+
+    -- lspconfig["sqlls"].setup {
+    --   -- capabilities = capabilities,
+    --   filetypes = { 'sql' },
+    --   root_dir = function(_)
+    --     return vim.loop.cwd()
+    --   end,
+    -- }
+
+    --configure postgres_lsp
+    -- lspconfig["postgres_lsp"].setup({
+    --   default_config = {
+    --     name = 'postgres_lsp',
+    --     cmd = { 'postgres_lsp' },
+    --     filetypes = { 'sql' },
+    --     single_file_support = true,
+    --   }
+    -- })
+
     local function organize_imports()
       local params = {
         command = "_typescript.organizeImports",
@@ -50,6 +72,9 @@ return {
       }
       vim.lsp.buf.execute_command(params)
     end
+
+
+    lspconfig["jsonls"].setup({})
 
     -- configure TypeScript lsp
     lspconfig["tsserver"].setup({
