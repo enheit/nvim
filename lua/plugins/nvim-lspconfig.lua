@@ -3,8 +3,6 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
 
-
-
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),
       callback = function(ev)
@@ -25,6 +23,9 @@ return {
         end, opts)
       end,
     })
+
+    -- golang lsp
+    require'lspconfig'.gopls.setup{}
 
     -- configure lua lsp
     lspconfig["lua_ls"].setup({
