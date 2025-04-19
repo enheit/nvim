@@ -1,4 +1,27 @@
 return {
+  -- {
+  --   "williamboman/mason.nvim",
+  --   -- build = ":MasonUpdate",
+  --   config = function()
+  --     require("mason").setup()
+  --   end,
+  -- },
+  --
+  -- -- Mason LSP bridge
+  -- {
+  --   "williamboman/mason-lspconfig.nvim",
+  --   dependencies = {
+  --     "williamboman/mason.nvim",
+  --     "neovim/nvim-lspconfig",
+  --   },
+  --   config = function()
+  --     require("mason-lspconfig").setup({
+  --       ensure_installed = { "lua_ls", "jsonls", "html", "cssls", "tailwindcss" }, -- add more as needed
+  --       -- automatic_installation = true,
+  --     })
+  --   end,
+  -- },
+
   "neovim/nvim-lspconfig",
   config = function()
     local lspconfig = require("lspconfig")
@@ -48,7 +71,7 @@ return {
     end
 
     -- configure TypeScript lsp
-    lspconfig["tsserver"].setup({
+    lspconfig["ts_ls"].setup({
       on_attach = on_attach,
       capabilities = capabilities,
       commands = {
