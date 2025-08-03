@@ -2,7 +2,8 @@ return {
   "mason-org/mason-lspconfig.nvim",
   opts = {
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
-    ensure_installed = { "lua_ls", "rust_analyzer", "zls", "clangd", "ts_ls" },
+    -- NOTE: Maybe change 'protols' to 'buf_ls' @ Roman
+    ensure_installed = { "lua_ls", "rust_analyzer", "zls", "clangd", "ts_ls", "protols", "yamlls" },
   },
   dependencies = {
     { "mason-org/mason.nvim", opts = {} },
@@ -32,6 +33,28 @@ return {
               },
             },
           },
+        }
+
+        require('lspconfig').yamlls.setup {
+          settings = {
+            redhat = {
+              telemetry = {
+                enabled = false,
+              },
+            },
+            yaml = {
+              keyOrdering = false,
+              format = {
+                enable = true,
+              },
+              validate = true,
+              schemas = {
+                -- Latest Kubernetes schema as of now
+                ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.32.1-standalone-strict/all.json"] = "/*.k8s.yaml",
+              },
+            },
+          },
+          filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab", "yaml.helm-values" },
         }
 
         vim.api.nvim_create_autocmd('LspAttach', {
